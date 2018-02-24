@@ -24,12 +24,12 @@ public class InterestCalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.interest_calculator_activity);
-        principalAmountOfMoneyEditText = (EditText) findViewById(R.id.PrincipalAmountOfMoneyEditText);
-        interestRateEditText = (EditText) findViewById(R.id.interestRateEditText);
-        interestResult = (TextView) findViewById(R.id.resultTextView);
-        startDateView = (TextView) findViewById(R.id.startDateTextView);
-        endDateView = (TextView) findViewById(R.id.endDateTextView);
-        resultDays = (TextView) findViewById(R.id.resultDays);
+        principalAmountOfMoneyEditText = findViewById(R.id.PrincipalAmountOfMoneyEditText);
+        interestRateEditText =  findViewById(R.id.interestRateEditText);
+        interestResult =  findViewById(R.id.resultTextView);
+        startDateView =  findViewById(R.id.startDateTextView);
+        endDateView =  findViewById(R.id.endDateTextView);
+        resultDays =  findViewById(R.id.resultDays);
         final Calendar calendar = Calendar.getInstance();
         startDay = calendar.get(Calendar.DAY_OF_MONTH);
         startMonth = calendar.get(Calendar.MONTH);
