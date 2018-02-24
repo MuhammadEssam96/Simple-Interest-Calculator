@@ -26,7 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Principal Amount of Money: " />
+                android:text="@string/principle_amount_of_money" />
 
             <EditText
                 android:id="@+id/PrincipalAmountOfMoneyEditText"
@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Interest Rate:" />
+                android:text="@string/interest_rate" />
 
             <EditText
                 android:id="@+id/interestRateEditText"
@@ -64,7 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="%"
+                android:text="@string/percent_sign"
                 android:textAlignment="center" />
 
         </LinearLayout>
@@ -94,14 +94,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Start Date: " />
+                        android:text="@string/start_date" />
 
                     <TextView
                         android:id="@+id/startDateTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="START DATE HERE"
+                        android:text="@string/start_date_here"
                         android:textAlignment="center"
                         android:visibility="invisible"
                         tools:visibility="visible" />
@@ -113,7 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Pick Start Date"
+                    android:text="@string/pick_start_date"
                     android:textAllCaps="false" />
             </LinearLayout>
 
@@ -133,14 +133,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="End Date: " />
+                        android:text="@string/end_date" />
 
                     <TextView
                         android:id="@+id/endDateTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="END DATE HERE"
+                        android:text="@string/end_date_here"
                         android:visibility="invisible"
                         tools:visibility="visible" />
                 </LinearLayout>
@@ -150,7 +150,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Pick End Date"
+                    android:text="@string/pick_end_date"
                     android:textAllCaps="false" />
 
             </LinearLayout>
@@ -166,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0 Days" />
+                android:text="@string/_0_days" />
 
         </LinearLayout>
 
@@ -183,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Result Here"
+            android:text="@string/result_here"
             android:visibility="invisible"
             tools:visibility="visible" />
 
@@ -192,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Calculate Interest and Total"
+            android:text="@string/calculate_interest_and_total"
             android:textAllCaps="false" />
 
     </LinearLayout>
