@@ -17,14 +17,14 @@ public class InterestCalculatorActivity extends AppCompatActivity {
     private TextView startDateView, endDateView, resultDays, interestResult;
     private double timePeriod, interest, total, principalAmountOfMoney, interestRate;
     private int startDay, startMonth, startYear;
-    private EditText principalAmountOfMoneyEditText, interestRateEditText;
+    private EditText principleAmountOfMoneyEditText, interestRateEditText;
     static final int START_DATE_DIALOG_ID = 999, END_DATE_DIALOG_ID = 998;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.interest_calculator_activity);
-        principalAmountOfMoneyEditText = findViewById(R.id.PrincipalAmountOfMoneyEditText);
+        principleAmountOfMoneyEditText = findViewById(R.id.PrincipleAmountOfMoneyEditText);
         interestRateEditText =  findViewById(R.id.interestRateEditText);
         interestResult =  findViewById(R.id.resultTextView);
         startDateView =  findViewById(R.id.startDateTextView);
@@ -122,7 +122,7 @@ public class InterestCalculatorActivity extends AppCompatActivity {
     }
 
     private void calculateInterestResultData() {
-        principalAmountOfMoney = Integer.parseInt(principalAmountOfMoneyEditText.getText().toString());
+        principalAmountOfMoney = Integer.parseInt(principleAmountOfMoneyEditText.getText().toString());
         interestRate = Integer.parseInt(interestRateEditText.getText().toString());
         interest = calculateInterest(principalAmountOfMoney, interestRate, timePeriod);
         total = principalAmountOfMoney + interest;

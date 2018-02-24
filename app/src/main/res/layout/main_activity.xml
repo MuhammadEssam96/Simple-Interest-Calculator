@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/PrincipleAmountOfMoneyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/principle_amount_of_money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/PrincipleAmountOfMoneyEditText"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="48dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/PrincipleAmountOfMoneyTextView"
+        />
+
+    <TextView
+        android:id="@+id/interestRateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/interest_rate"
+        app:layout_constraintStart_toStartOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintTop_toBottomOf="@+id/PrincipleAmountOfMoneyTextView" />
+
+    <EditText
+        android:id="@+id/interestRateEditText"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/interestRateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/PrincipleAmountOfMoneyEditText"
+        app:layout_constraintStart_toStartOf="@+id/PrincipleAmountOfMoneyEditText"
+        app:layout_constraintTop_toTopOf="@+id/interestRateTextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="9dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/percent_sign"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/interestRateEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PrincipleAmountOfMoneyEditText" />
+
+</android.support.constraint.ConstraintLayout>
