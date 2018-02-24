@@ -16,8 +16,7 @@ public class InterestCalculatorActivity extends AppCompatActivity {
     private Calendar startCalendar, endCalendar;
     private TextView startDateView, endDateView, resultDays, interestResult;
     private double timePeriod, interest, total, principalAmountOfMoney, interestRate;
-    private int startDay, startMonth, startYear, endDay, endMonth, endYear;
-    private Button pickStartDateButton, pickEndDateButton, calculateDays, calculateInterestResult;
+    private int startDay, startMonth, startYear;
     private EditText principalAmountOfMoneyEditText, interestRateEditText;
     static final int START_DATE_DIALOG_ID = 999, END_DATE_DIALOG_ID = 998;
 
@@ -36,7 +35,7 @@ public class InterestCalculatorActivity extends AppCompatActivity {
         startMonth = calendar.get(Calendar.MONTH);
         startYear = calendar.get(Calendar.YEAR);
         startDateView.setText(new StringBuilder().append(startDay).append("/").append(startMonth + 1).append("/").append(startYear));
-        pickStartDateButton = (Button) findViewById(R.id.pickStartDateButton);
+        Button pickStartDateButton = findViewById(R.id.pickStartDateButton);
         pickStartDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +43,7 @@ public class InterestCalculatorActivity extends AppCompatActivity {
             }
         });
 
-        pickEndDateButton = (Button) findViewById(R.id.pickEndDateButton);
+        Button pickEndDateButton = findViewById(R.id.pickEndDateButton);
         pickEndDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +51,7 @@ public class InterestCalculatorActivity extends AppCompatActivity {
             }
         });
 
-        calculateInterestResult = (Button) findViewById(R.id.calculateInterestButton);
+        Button calculateInterestResult = findViewById(R.id.calculateInterestButton);
         calculateInterestResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,12 +86,9 @@ public class InterestCalculatorActivity extends AppCompatActivity {
 
     private DatePickerDialog.OnDateSetListener endDatePickerListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-            endYear = selectedYear;
-            endMonth = selectedMonth;
-            endDay = selectedDay;
-            endDateView.setText(new StringBuilder().append(endDay).append("-").append(endMonth + 1).append("-").append(endYear));
+            endDateView.setText(new StringBuilder().append(selectedDay).append("-").append(selectedMonth + 1).append("-").append(selectedYear));
             endDateView.setVisibility(View.VISIBLE);
-            setEndDate(endDay, endMonth, endYear);
+            setEndDate(selectedDay, selectedMonth, selectedYear);
             setDays();
         }
     };
@@ -150,6 +146,4 @@ public class InterestCalculatorActivity extends AppCompatActivity {
         Log.v("MainActivity" , "Interest: " + String.valueOf(interest));
         return interest;
     }
-
-
 }
