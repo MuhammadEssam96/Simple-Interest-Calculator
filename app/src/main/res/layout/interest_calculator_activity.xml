@@ -22,14 +22,14 @@
             android:paddingTop="8dp">
 
             <TextView
-                android:id="@+id/PrincipalAmountOfMoneyTextView"
+                android:id="@+id/PrincipleAmountOfMoneyTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="@string/principle_amount_of_money" />
 
             <EditText
-                android:id="@+id/PrincipalAmountOfMoneyEditText"
+                android:id="@+id/PrincipleAmountOfMoneyEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,7 +47,7 @@
             android:paddingTop="8dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/interestRateTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -61,6 +61,7 @@
                 android:inputType="number" />
 
             <TextView
+                android:id="@+id/percentSign"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -91,6 +92,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/startDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -130,6 +132,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/endDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
