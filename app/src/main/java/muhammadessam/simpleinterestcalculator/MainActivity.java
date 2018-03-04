@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        principleAmountOfMoneyEditText = findViewById(R.id.PrincipleAmountOfMoneyEditText);
-        interestRateEditText =  findViewById(R.id.interestRateEditText);
+        principleAmountOfMoneyEditText = findViewById(R.id.PrincipleAmountOfMoneyEditTextView);
+        interestRateEditText =  findViewById(R.id.interestRateEditTextView);
         interestResult =  findViewById(R.id.resultTextView);
         startDateView =  findViewById(R.id.startDateTextView);
         endDateView =  findViewById(R.id.endDateTextView);
