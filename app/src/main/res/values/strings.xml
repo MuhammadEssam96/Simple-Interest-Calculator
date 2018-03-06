@@ -2,6 +2,8 @@
     <string name="app_name">Simple Interest Calculator</string>
     <string name="principle_amount_of_money">Principle Amount of Money:</string>
     <string name="interest_rate">Interest Rate:</string>
+    <string name="principle_amount_of_money_no_colon">Principle Amount of Money</string>
+    <string name="interest_rate_no_colon">Interest Rate</string>
     <string name="percent_sign">%</string>
     <string name="start_date">Start Date:</string>
     <string name="start_date_here">START DATE HERE</string>
