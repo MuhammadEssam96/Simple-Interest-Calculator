@@ -29,7 +29,8 @@
             android:id="@+id/PrincipleAmountOfMoneyEditTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="number" />
+            android:inputType="number"
+            android:contentDescription="@string/principle_amount_of_money_no_colon"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -55,7 +56,8 @@
             android:id="@+id/interestRateEditTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="number" />
+            android:inputType="number"
+            android:contentDescription="@string/interest_rate_no_colon"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
