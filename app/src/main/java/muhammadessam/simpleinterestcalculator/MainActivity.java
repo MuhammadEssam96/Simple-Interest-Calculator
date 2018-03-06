@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Calendar;
 
 /**
@@ -59,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
         calculateInterestResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calculateInterestResultData();
+                if (isEditTextFilled(principleAmountOfMoneyEditText) && isEditTextFilled(interestRateEditText)){
+                    calculateInterestResultData();
+                } else {
+                    Toast toast = Toast.makeText(MainActivity.this, "Missing Information..", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 
@@ -123,6 +130,18 @@ public class MainActivity extends AppCompatActivity {
         timePeriod = timePeriodd;
         Log.v("MainActivity" , String.valueOf(timePeriod));
         return timePeriod;
+    }
+
+    private boolean isEditTextFilled(EditText editText){
+        String editTextName = editText.getContentDescription().toString();
+        if (editText.getText().toString().isEmpty()
+                || editText.getText().toString().length() == 0
+                || editText.getText().toString().equals("")){
+            editText.setError(editTextName + " is missing!");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private void calculateInterestResultData() {
