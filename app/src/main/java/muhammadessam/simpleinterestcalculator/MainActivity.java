@@ -2,6 +2,7 @@ package muhammadessam.simpleinterestcalculator;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Calendar;
 
 /**
@@ -19,12 +19,13 @@ import java.util.Calendar;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private Calendar startCalendar, endCalendar;
-    private TextView startDateView, endDateView, resultDays, interestResult;
-    private double timePeriod, interest, total, principalAmountOfMoney, interestRate;
-    private int startDay, startMonth, startYear;
+    private static Calendar startCalendar, endCalendar;
+    private TextView interestResult;
+    private static double timePeriod;
+    private double interest, total, principalAmountOfMoney, interestRate;
+    public static  int startDay, startMonth, startYear, endDay, endMonth, endYear;
     private EditText principleAmountOfMoneyEditText, interestRateEditText;
-    static final int START_DATE_DIALOG_ID = 999, END_DATE_DIALOG_ID = 998;
+    private static final String START_DATE_TAG =  "Start Date Picker", END_DATE_TAG = "End Date Picker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
         principleAmountOfMoneyEditText = findViewById(R.id.PrincipleAmountOfMoneyEditTextView);
         interestRateEditText =  findViewById(R.id.interestRateEditTextView);
         interestResult =  findViewById(R.id.resultTextView);
-        startDateView =  findViewById(R.id.startDateTextView);
-        endDateView =  findViewById(R.id.endDateTextView);
-        resultDays =  findViewById(R.id.resultDays);
+        TextView startDateView = findViewById(R.id.startDateTextView);
         final Calendar calendar = Calendar.getInstance();
         startDay = calendar.get(Calendar.DAY_OF_MONTH);
         startMonth = calendar.get(Calendar.MONTH);
@@ -45,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         pickStartDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog(START_DATE_DIALOG_ID);
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.show(getFragmentManager(), START_DATE_TAG);
             }
         });
 
@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         pickEndDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog(END_DATE_DIALOG_ID);
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.show(getFragmentManager(), END_DATE_TAG);
             }
         });
 
@@ -69,64 +70,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case START_DATE_DIALOG_ID:
-                return new DatePickerDialog(this, startDatePickerListener, startYear, startMonth, startDay);
-            case END_DATE_DIALOG_ID:
-                return new DatePickerDialog(this, endDatePickerListener, startYear, startMonth, startDay);
-        }
-        return null;
-    }
-
-
-    private DatePickerDialog.OnDateSetListener startDatePickerListener = new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-            startYear = selectedYear;
-            startMonth = selectedMonth;
-            startDay = selectedDay;
-            startDateView.setText(new StringBuilder().append(startDay).append("-").append(startMonth + 1).append("-").append(startYear));
-            startDateView.setVisibility(View.VISIBLE);
-            setStartDate(startDay, startMonth, startYear);
-        }
-    };
-
-    private DatePickerDialog.OnDateSetListener endDatePickerListener = new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-            endDateView.setText(new StringBuilder().append(selectedDay).append("-").append(selectedMonth + 1).append("-").append(selectedYear));
-            endDateView.setVisibility(View.VISIBLE);
-            setEndDate(selectedDay, selectedMonth, selectedYear);
-            setDays();
-        }
-    };
-
-    private void setStartDate(int startDay, int startMonth, int startYear) {
+    public static void setStartDate(int startDay, int startMonth, int startYear) {
         startCalendar = Calendar.getInstance();
         startCalendar.set(Calendar.DAY_OF_MONTH, startDay);
         startCalendar.set(Calendar.MONTH, startMonth);
         startCalendar.set(Calendar.YEAR, startYear);
     }
 
-    private void setEndDate(int endDay, int endMonth, int endYear) {
+    public static  void setEndDate(int endDay, int endMonth, int endYear) {
         endCalendar = Calendar.getInstance();
         endCalendar.set(Calendar.DAY_OF_MONTH, endDay);
         endCalendar.set(Calendar.MONTH, endMonth);
         endCalendar.set(Calendar.YEAR, endYear);
     }
 
-    private void setDays() {
-        long differenceInMillis = startCalendar.getTimeInMillis() - endCalendar.getTimeInMillis();
-        long daysInDays = differenceInMillis / (24 * 60 * 60 * 1000);
-        resultDays.setText(String.valueOf(Math.abs(daysInDays)) + " Days.");
-        resultDays.setVisibility(View.VISIBLE);
-        timePeriod = setTimePeriod(Math.abs(daysInDays));
-    }
-
-    private double setTimePeriod(double timePeriodd) {
+    private static double setTimePeriod(double timePeriodd) {
         timePeriod = timePeriodd;
         Log.v("MainActivity" , String.valueOf(timePeriod));
         return timePeriod;
@@ -168,5 +128,45 @@ public class MainActivity extends AppCompatActivity {
         interest = principalAmountOfMoney * interestRate * timePeriod;
         Log.v("MainActivity" , "Interest: " + String.valueOf(interest));
         return interest;
+    }
+
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+        private static final String START_DATE_TAG =  "Start Date Picker", END_DATE_TAG = "End Date Picker";
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+            return new DatePickerDialog(getActivity(), this, year, month, dayOfMonth);
+        }
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            if (getTag().equals(START_DATE_TAG)){
+                startYear = year;
+                startMonth =month + 1;
+                startDay = dayOfMonth;
+                TextView startDateView = getActivity().findViewById(R.id.startDateTextView);
+                startDateView.setText(new StringBuilder().append(MainActivity.startDay).append("-").append(MainActivity.startMonth + 1).append("-").append(MainActivity.startYear));
+                startDateView.setVisibility(View.VISIBLE);
+                setStartDate(MainActivity.startDay, MainActivity.startMonth + 1, MainActivity.startYear);
+            } else if (getTag().equals(END_DATE_TAG)){
+                endYear = year;
+                endMonth =month + 1;
+                endDay = dayOfMonth;
+                TextView endDateView = getActivity().findViewById(R.id.endDateTextView);
+                endDateView.setText(new StringBuilder().append(MainActivity.endDay).append("-").append(MainActivity.endMonth + 1).append("-").append(MainActivity.endYear));
+                endDateView.setVisibility(View.VISIBLE);
+                setEndDate(MainActivity.endDay, MainActivity.endMonth + 1, MainActivity.endYear);
+                long differenceInMillis = startCalendar.getTimeInMillis() - endCalendar.getTimeInMillis();
+                long daysInDays = differenceInMillis / (24 * 60 * 60 * 1000);
+                TextView resultDays = getActivity().findViewById(R.id.resultDays);
+                resultDays.setText(String.valueOf(Math.abs(daysInDays)) + " Days.");
+                resultDays.setVisibility(View.VISIBLE);
+                timePeriod = setTimePeriod(Math.abs(daysInDays));
+            }
+        }
     }
 }
