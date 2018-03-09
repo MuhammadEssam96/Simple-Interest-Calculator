@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/PrincipleAmountOfMoneyTextView"
+        android:labelFor="@id/PrincipleAmountOfMoneyEditTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/principle_amount_of_money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/PrincipleAmountOfMoneyEditText"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintStart_toEndOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintTop_toTopOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintVertical_bias="0.77">
+
+        <EditText
+            android:id="@+id/PrincipleAmountOfMoneyEditTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/principle_amount_of_money_no_colon"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/interestRateTextView"
+        android:labelFor="@id/interestRateEditTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/interest_rate"
+        app:layout_constraintStart_toStartOf="@+id/PrincipleAmountOfMoneyTextView"
+        app:layout_constraintTop_toBottomOf="@+id/PrincipleAmountOfMoneyTextView" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/interestRateEditText"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/interestRateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/PrincipleAmountOfMoneyEditText"
+        app:layout_constraintStart_toStartOf="@+id/PrincipleAmountOfMoneyEditText"
+        app:layout_constraintTop_toTopOf="@+id/interestRateTextView"
+        app:layout_constraintVertical_bias="0.77">
+
+        <EditText
+            android:id="@+id/interestRateEditTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:contentDescription="@string/interest_rate_no_colon"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="9dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/percent_sign"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/interestRateEditText"
+        app:layout_constraintStart_toEndOf="@+id/interestRateEditText"
+        app:layout_constraintTop_toBottomOf="@+id/PrincipleAmountOfMoneyEditText" />
+
+    <TextView
+        android:id="@+id/startDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/start_date"
+        app:layout_constraintBottom_toTopOf="@+id/startDateTextView"
+        app:layout_constraintStart_toStartOf="@+id/interestRateTextView" />
+
+    <TextView
+        android:id="@+id/startDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/start_date_here"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/pickStartDateButton"
+        app:layout_constraintStart_toStartOf="@+id/startDate"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/pickStartDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/pick_start_date"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/startDate" />
+
+    <TextView
+        android:id="@+id/endDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/end_date"
+        app:layout_constraintStart_toStartOf="@+id/interestRateEditText"
+        app:layout_constraintTop_toTopOf="@+id/startDate" />
+
+    <TextView
+        android:id="@+id/endDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/end_date_here"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/pickEndDateButton"
+        app:layout_constraintStart_toStartOf="@+id/endDate"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/pickEndDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/pick_end_date"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/endDate" />
+
+    <TextView
+        android:id="@+id/resultDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:text="@string/_0_days"
+        app:layout_constraintBottom_toBottomOf="@+id/pickStartDateButton"
+        app:layout_constraintEnd_toStartOf="@+id/pickEndDateButton"
+        app:layout_constraintStart_toEndOf="@+id/pickStartDateButton"
+        app:layout_constraintTop_toTopOf="@+id/pickStartDateButton" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/result_here"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/calculateInterestButton"
+        app:layout_constraintEnd_toEndOf="@+id/calculateInterestButton"
+        app:layout_constraintStart_toStartOf="@+id/calculateInterestButton"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/calculateInterestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/calculate_interest_and_total"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pickEndDateButton" />
+
+</android.support.constraint.ConstraintLayout>
