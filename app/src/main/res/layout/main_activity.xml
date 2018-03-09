@@ -64,22 +64,19 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="9dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="20dp"
         android:text="@string/percent_sign"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/interestRateEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrincipleAmountOfMoneyEditText" />
+        app:layout_constraintTop_toTopOf="@+id/interestRateEditText" />
 
     <TextView
         android:id="@+id/startDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/start_date"
         app:layout_constraintStart_toStartOf="@+id/interestRateTextView"
@@ -139,25 +136,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
         android:text="@string/_0_days"
+        app:layout_constraintBottom_toBottomOf="@+id/pickStartDateButton"
         app:layout_constraintEnd_toStartOf="@+id/pickEndDateButton"
         app:layout_constraintStart_toEndOf="@+id/pickStartDateButton"
-        app:layout_constraintTop_toBottomOf="@+id/pickStartDateButton" />
+        app:layout_constraintTop_toTopOf="@+id/pickStartDateButton" />
 
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:text="@string/result_here"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/calculateInterestButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/calculateInterestButton"
+        app:layout_constraintStart_toStartOf="@+id/calculateInterestButton"
+        app:layout_constraintTop_toBottomOf="@+id/pickStartDateButton"
         tools:visibility="visible" />
 
     <Button
@@ -171,6 +166,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>
