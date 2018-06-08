@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 long differenceInMillis = startCalendar.getTimeInMillis() - endCalendar.getTimeInMillis();
                 long daysInDays = differenceInMillis / (24 * 60 * 60 * 1000);
                 TextView resultDays = getActivity().findViewById(R.id.resultDays);
-                resultDays.setText(String.valueOf(Math.abs(daysInDays)).concat(" Days."));
+                resultDays.setText(String.valueOf(Math.abs(daysInDays)).concat(" ").concat(getString(R.string.days)));
                 resultDays.setVisibility(View.VISIBLE);
                 timePeriod = setTimePeriod(Math.abs(daysInDays));
             }
