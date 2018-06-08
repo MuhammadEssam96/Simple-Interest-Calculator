@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 /**
@@ -115,8 +115,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showInterestResult() {
-        resultInterest.setText(String.valueOf(interest));
-        resultTotal.setText(String.valueOf(total));
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        resultInterest.setText(String.valueOf(decimalFormat.format(interest)));
+        resultTotal.setText(String.valueOf(decimalFormat.format(total)));
         resultRelativeLayout.setVisibility(View.VISIBLE);
     }
 
