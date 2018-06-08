@@ -137,23 +137,80 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/_0_days"
-        app:layout_constraintBottom_toBottomOf="@+id/pickStartDateButton"
         app:layout_constraintEnd_toStartOf="@+id/pickEndDateButton"
         app:layout_constraintStart_toEndOf="@+id/pickStartDateButton"
-        app:layout_constraintTop_toTopOf="@+id/pickStartDateButton" />
+        app:layout_constraintBaseline_toBaselineOf="@id/pickStartDateButton"/>
 
-    <TextView
-        android:id="@+id/resultTextView"
+    <RelativeLayout
+        android:id="@+id/resultLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/result_here"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/calculateInterestButton"
-        app:layout_constraintEnd_toEndOf="@+id/calculateInterestButton"
-        app:layout_constraintStart_toStartOf="@+id/calculateInterestButton"
+        tools:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/pickStartDateButton"
-        tools:visibility="visible" />
+        app:layout_constraintBottom_toTopOf="@+id/calculateInterestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/primary_text_light"
+            android:text="@string/interest" />
+
+        <TextView
+            android:id="@+id/resultInterestTextView"
+            android:layout_alignBaseline="@id/textView3"
+            android:layout_toEndOf="@id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingStart="8dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/primary_text_light"
+            tools:text="7 %" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/textView3"
+            android:text="@string/total"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/primary_text_light"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/textView4"
+            android:layout_toEndOf="@id/textView4"
+            android:textSize="16sp"
+            android:textColor="@android:color/primary_text_light"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            tools:text="1000"/>
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/calculateInterestButton"
