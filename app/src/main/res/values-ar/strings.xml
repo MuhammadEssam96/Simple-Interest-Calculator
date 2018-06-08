@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حساب الفائدة البسيطة</string>
+    <string name="principle_amount_of_money">أصل المبلغ:</string>
+    <string name="interest_rate">معدل الفائدة:</string>
+    <string name="principle_amount_of_money_no_colon">أصل المبلغ</string>
+    <string name="interest_rate_no_colon">معدل الفائدة</string>
+    <string name="percent_sign">%</string>
+    <string name="start_date">تاريخ البداية:</string>
+
+    <string name="pick_start_date">حدد تاريخ البداية</string>
+    <string name="end_date">تاريخ النهاية:</string>
+
+    <string name="pick_end_date">حدد تاريخ النهاية</string>
+    <string name="_0_days">0 يوم</string>
+    <string name="result_here">النتيجة هنا</string>
+    <string name="calculate_interest_and_total">إحسب النتيجة</string>
+    <string name="total">مجموع المبلغ:</string>
+    <string name="interest">الفائدة:</string>
+</resources>
