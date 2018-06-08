@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
@@ -20,11 +21,12 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private static Calendar startCalendar, endCalendar;
-    private TextView interestResult;
+    private RelativeLayout resultRelativeLayout;
     private static double timePeriod;
     private double interest, total, principalAmountOfMoney, interestRate;
-    public static  int startDay, startMonth, startYear, endDay, endMonth, endYear;
+    private static  int startDay, startMonth, startYear, endDay, endMonth, endYear;
     private EditText principleAmountOfMoneyEditText, interestRateEditText;
+    private TextView resultInterest, resultTotal;
     private static final String START_DATE_TAG =  "Start Date Picker", END_DATE_TAG = "End Date Picker";
 
     @Override
@@ -33,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
         principleAmountOfMoneyEditText = findViewById(R.id.PrincipleAmountOfMoneyEditTextView);
         interestRateEditText =  findViewById(R.id.interestRateEditTextView);
-        interestResult =  findViewById(R.id.resultTextView);
+        resultRelativeLayout =  findViewById(R.id.resultLayout);
+        resultInterest = findViewById(R.id.resultInterestTextView);
+        resultTotal = findViewById(R.id.resultTotalTextView);
         TextView startDateView = findViewById(R.id.startDateTextView);
         final Calendar calendar = Calendar.getInstance();
         startDay = calendar.get(Calendar.DAY_OF_MONTH);
@@ -118,8 +122,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showInterestResult() {
-        interestResult.setText("Principal Amount of Money is: " + principalAmountOfMoney + ".\nInterest is: " + interest + ".\nTotal is: " + total + ".\nInterest Rate is: " + interestRate + "%.\nTime Period is: " + timePeriod + ". ");
-        interestResult.setVisibility(View.VISIBLE);
+        resultInterest.setText(String.valueOf(interest));
+        resultTotal.setText(String.valueOf(total));
+        resultRelativeLayout.setVisibility(View.VISIBLE);
     }
 
     private double calculateInterest(double principalAmountOfMoney, double interestRate, double timePeriod){
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
             if (getTag().equals(START_DATE_TAG)){
                 startYear = year;
-                startMonth =month + 1;
+                startMonth = month + 1;
                 startDay = dayOfMonth;
                 TextView startDateView = getActivity().findViewById(R.id.startDateTextView);
                 startDateView.setText(new StringBuilder().append(MainActivity.startDay).append("-").append(MainActivity.startMonth + 1).append("-").append(MainActivity.startYear));
@@ -154,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 setStartDate(MainActivity.startDay, MainActivity.startMonth + 1, MainActivity.startYear);
             } else if (getTag().equals(END_DATE_TAG)){
                 endYear = year;
-                endMonth =month + 1;
+                endMonth = month + 1;
                 endDay = dayOfMonth;
                 TextView endDateView = getActivity().findViewById(R.id.endDateTextView);
                 endDateView.setText(new StringBuilder().append(MainActivity.endDay).append("-").append(MainActivity.endMonth + 1).append("-").append(MainActivity.endYear));
