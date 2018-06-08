@@ -3,9 +3,8 @@ package muhammadessam.simpleinterestcalculator;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.Calendar;
 
 /**
@@ -70,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 if (isEditTextFilled(principleAmountOfMoneyEditText) && isEditTextFilled(interestRateEditText)){
                     calculateInterestResultData();
                 } else {
-                    Toast toast = Toast.makeText(MainActivity.this, "Missing Information..", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(MainActivity.this, "Missing Information..", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -93,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static double setTimePeriod(double timePeriodNew) {
         timePeriod = timePeriodNew;
-        Log.v("MainActivity" , String.valueOf(timePeriod));
         return timePeriod;
     }
 
@@ -104,9 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 || editText.getText().toString().equals("")){
             editText.setError(editTextName + " is missing!");
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     private void calculateInterestResultData() {
@@ -114,11 +111,6 @@ public class MainActivity extends AppCompatActivity {
         double interestRate = Integer.parseInt(interestRateEditText.getText().toString());
         interest = calculateInterest(principalAmountOfMoney, interestRate, timePeriod);
         total = principalAmountOfMoney + interest;
-        Log.v("MainActivity" , "Principle Amount Of Money: " + String.valueOf(principalAmountOfMoney));
-        Log.v("MainActivity" , "Interest rate: " + String.valueOf(interestRate % 100));
-        Log.v("MainActivity" , "Time Period: " + String.valueOf(timePeriod / 360));
-        Log.v("MainActivity" , "Interest: " + String.valueOf(interest));
-        Log.v("MainActivity" , "Total: " + String.valueOf(total));
         showInterestResult();
     }
 
@@ -132,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
         timePeriod = timePeriod / 360;
         interestRate = interestRate /100;
         interest = principalAmountOfMoney * interestRate * timePeriod;
-        Log.v("MainActivity" , "Interest: " + String.valueOf(interest));
         return interest;
     }
 
