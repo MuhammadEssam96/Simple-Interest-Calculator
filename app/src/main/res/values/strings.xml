@@ -12,6 +12,7 @@
     <string name="end_date_here" translatable="false">END DATE HERE</string>
     <string name="pick_end_date">Pick End Date</string>
     <string name="_0_days">0 Days</string>
+    <string name="days">days.</string>
     <string name="result_here">Result Here</string>
     <string name="calculate_interest_and_total">Calculate result</string>
     <string name="total">Total:</string>

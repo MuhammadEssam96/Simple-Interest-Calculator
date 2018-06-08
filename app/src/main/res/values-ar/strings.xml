@@ -13,6 +13,7 @@
 
     <string name="pick_end_date">حدد تاريخ النهاية</string>
     <string name="_0_days">0 يوم</string>
+    <string name="days">يوم</string>
     <string name="result_here">النتيجة هنا</string>
     <string name="calculate_interest_and_total">إحسب النتيجة</string>
     <string name="total">مجموع المبلغ:</string>
