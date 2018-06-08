@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private static Calendar startCalendar, endCalendar;
     private RelativeLayout resultRelativeLayout;
     private static double timePeriod;
-    private double interest, total, principalAmountOfMoney, interestRate;
+    private double interest;
+    private double total;
     private static  int startDay, startMonth, startYear, endDay, endMonth, endYear;
     private EditText principleAmountOfMoneyEditText, interestRateEditText;
     private TextView resultInterest, resultTotal;
@@ -90,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         endCalendar.set(Calendar.YEAR, endYear);
     }
 
-    private static double setTimePeriod(double timePeriodd) {
-        timePeriod = timePeriodd;
+    private static double setTimePeriod(double timePeriodNew) {
+        timePeriod = timePeriodNew;
         Log.v("MainActivity" , String.valueOf(timePeriod));
         return timePeriod;
     }
@@ -109,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateInterestResultData() {
-        principalAmountOfMoney = Integer.parseInt(principleAmountOfMoneyEditText.getText().toString());
-        interestRate = Integer.parseInt(interestRateEditText.getText().toString());
+        double principalAmountOfMoney = Integer.parseInt(principleAmountOfMoneyEditText.getText().toString());
+        double interestRate = Integer.parseInt(interestRateEditText.getText().toString());
         interest = calculateInterest(principalAmountOfMoney, interestRate, timePeriod);
         total = principalAmountOfMoney + interest;
         Log.v("MainActivity" , "Principle Amount Of Money: " + String.valueOf(principalAmountOfMoney));
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 long differenceInMillis = startCalendar.getTimeInMillis() - endCalendar.getTimeInMillis();
                 long daysInDays = differenceInMillis / (24 * 60 * 60 * 1000);
                 TextView resultDays = getActivity().findViewById(R.id.resultDays);
-                resultDays.setText(String.valueOf(Math.abs(daysInDays)) + " Days.");
+                resultDays.setText(String.valueOf(Math.abs(daysInDays)).concat(" Days."));
                 resultDays.setVisibility(View.VISIBLE);
                 timePeriod = setTimePeriod(Math.abs(daysInDays));
             }
